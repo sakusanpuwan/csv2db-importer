@@ -1,0 +1,28 @@
+{
+  "name": "csv2db-importer",
+  "version": "1.0.0",
+  "description": "CSV to Database Import Tool",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakusanpuwan/csv2db-importer.git"
+  },
+  "author": "Sakusan Puwanendran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sakusanpuwan/csv2db-importer/issues"
+  },
+  "homepage": "https://github.com/sakusanpuwan/csv2db-importer#readme",
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.5.0",
+    "jest": "^29.7.0",
+    "knex": "^3.1.0",
+    "oracledb": "^6.8.0"
+  }
+}
