@@ -1,22 +1,23 @@
 const knexdb = require("./config/knexdb.js");
-const config = require("./config/config.js");
+const config = require("../config.json");
+const env = require('./config/env.js')
 const fs = require("fs");
 const csvParser = require("csv-parser");
 
-const filePath = config.FILE_PATH;
+const filePath = env.FILE_PATH;
 const tableName = config.TABLE_NAME;
-const headers = [];
+const headers = config.TABLE_HEADERS;
 const rows = [];
+let isFirstRow = true;
 
 async function main() {
     fs.createReadStream(filePath)
-        .pipe(csvParser())
-        .on("headers", (headerList) => {
-            headerList.forEach((header) => {
-                headers.push(header);
-            });
-        })
+        .pipe(csvParser({ headers: headers }))
         .on("data", (row) => {
+            if (isFirstRow) {
+                isFirstRow = false;
+                return;
+            }
             rows.push(row);
         })
         .on("end", async () => {
@@ -26,7 +27,7 @@ async function main() {
                 await insertData();
                 knexdb.destroy(); // Close the database connection
             } catch (error) {
-                console.error("Error interacting with database:", error);
+                console.error(error);
             }
 
         })
