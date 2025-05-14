@@ -6,7 +6,19 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "npx pkg ."
+  },
+  "bin" : "src/index.js",
+  "pkg": {
+    "scripts": "src/**/*.js",
+    "assets": [
+      "config.json",
+      ".env"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,6 +35,7 @@
     "dotenv": "^16.5.0",
     "jest": "^29.7.0",
     "knex": "^3.1.0",
-    "oracledb": "^6.8.0"
+    "oracledb": "^6.8.0",
+    "pkg": "^5.8.1"
   }
 }

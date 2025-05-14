@@ -1,6 +1,6 @@
 // This is a configuration file for Knex.js, a SQL query builder for Node.js.
 // It defines the database connection settings for different environments: development, test, and production.
-const config = require('./env.js'); // Import the config module
+const config = require('./config.js'); // Import the config module
 
 const { DB_USER, DB_PASSWORD, DB_CONNECTION_STRING } = config;
 

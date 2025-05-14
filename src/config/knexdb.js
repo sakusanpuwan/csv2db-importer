@@ -1,4 +1,4 @@
-const env = require('./env.js'); // Import the config module
+const env = require('./config.js'); // Import the config module
 const knex = require('knex');
 const knexConfig = require('./knexfile.js'); // Import the configuration file
 

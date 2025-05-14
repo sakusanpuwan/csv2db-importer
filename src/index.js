@@ -1,10 +1,9 @@
 const knexdb = require("./config/knexdb.js");
-const config = require("../config.json");
-const env = require('./config/env.js')
+const config = require('./config/config.js')
 const fs = require("fs");
 const csvParser = require("csv-parser");
 
-const filePath = env.FILE_PATH;
+const filePath = config.FILE_PATH;
 const tableName = config.TABLE_NAME;
 const headers = config.TABLE_HEADERS;
 const rows = [];
@@ -24,7 +23,7 @@ async function main() {
             console.log("CSV file successfully processed");
             try {
                 await createTable();
-                await insertData();
+                // await insertData();
                 knexdb.destroy(); // Close the database connection
             } catch (error) {
                 console.error(error);
