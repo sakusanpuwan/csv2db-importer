@@ -15,7 +15,7 @@ const knexConfig = {
     pool: { min: 0, max: 7 }
   },
   test: {
-    client: 'sqlite3',
+    client: 'better-sqlite3',
     connection: {
       filename: ':memory:', // in-memory DB
     },
